@@ -2,8 +2,8 @@ import React, {useState, useEffect, useCallback} from 'react'
 import axios from 'axios'
 import {RiSearch2Line} from  'react-icons/ri'
 import Hotbg from '../Asset/sun.png'
-import Warmbg from '../Asset/rainny.png'
-import Coolbg from '../Asset/warm.png'
+import Warmbg from '../Asset/warm.png'
+import Coolbg from '../Asset/rainny.png'
 import DN from '../Asset/down.png'
 import UP from '../Asset/max.png'
 import HU from '../Asset/humidity.png'
@@ -30,7 +30,7 @@ const Description = () => {
    const [location, setLocation] = useState('')
    const [bg, setBg] = useState('')
 
-   const hot = 86;  // Define the threshold in Celsius
+   const hot = 79;  // Define the threshold in Celsius
    const warm = 76;
    const cool = 30;
   
