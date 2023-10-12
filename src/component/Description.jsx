@@ -37,9 +37,8 @@ const Description = () => {
 
    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location},&units=imperial&appid=249d2b45b68604e242df127efa28caa5`
 
-   const searchLocation = (e) => {
-    if (e.key === 'Enter') {
-      axios.get(url)
+   useEffect(() => {
+    axios.get(url)
         .then((response) => {
           setData(response.data);
           // Update background image here based on temperature
@@ -57,9 +56,9 @@ const Description = () => {
           console.error('API request error:', error);
           // You can also provide feedback to the user about the error
         });
-      setLocation('');
-    }
-  };
+      
+   },[location])
+
   return (
     <div className=' app'>
         <main className='w-full grid justify-center gap-6 overflow-hidden'>
@@ -69,7 +68,6 @@ const Description = () => {
                    <input type='text' 
                    placeholder='Search Location'
                    name='city'
-                   onKeyDown={searchLocation}
                   value={location}
                   onChange={e => setLocation(e.target.value)}
                     className='md:w-[30rem] sm:w-[20rem] placeholder:italic placeholder:text-slate-400 block bg-white border border-slate-300 rounded-full py-2 pl-14 pr-3 shadow-lg focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search '/>
